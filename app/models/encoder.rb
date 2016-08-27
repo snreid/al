@@ -13,8 +13,9 @@ class Encoder
       hexes << to_hex(byte.to_i(2))
     end
     hexes.each.collect { |h| pad_hex(h) }.join
-
   end
+
+  private
 
   def padded_number
     number + PADDING

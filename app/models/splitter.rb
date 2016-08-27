@@ -1,20 +1,22 @@
 class Splitter
-  attr_accessor :bytes, :high_byte, :low_byte
+  attr_accessor :bytes, :hi_byte, :lo_byte
 
   def initialize(bytes)
     @bytes = bytes
-    @high_byte = []
-    @low_byte = []
+    @hi_byte = []
+    @lo_byte = []
   end
 
   def split
     bit_array = bits
     while bit_array.length > 8
-      high_byte.push(bit_array.shift)
+      hi_byte.push(bit_array.shift)
     end
-    low_byte = bit_array
-    { high_array: high_byte, low_array: low_byte }
+    lo_byte = bit_array
+    { hi_array: hi_byte, lo_array: lo_byte }
   end
+
+  private
 
   def bits
     bytes.split(//)
